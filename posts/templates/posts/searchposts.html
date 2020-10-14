@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %} -LIST {% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="row">
+        <div class="col-12">
+            <div class="card card-margin">
+                <div class="card-body">
+                    <div class="row search-body">
+                        <div class="col-lg-12">
+                            <div class="search-result">
+                                <div class="result-header">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="records">Showing: <b>1-20</b> of <b>200</b> result</div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="result-actions">
+                                                <div class="result-sorting">
+                                                    <span>Sort By:</span>
+                                                    <select class="form-control border-0" id="exampleOption">
+                                                        <option value="1">Relevance</option>
+                                                        <option value="2">Names (A-Z)</option>
+                                                        <option value="3">Names (Z-A)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="table-responsive">
+                                        <table class="table widget-26">
+
+                                            <tbody>
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                    게시-->
+<!--                                                </td>-->
+<!--                                                <td>-->
+<!--                                                    게시글-->
+<!--                                                </td>-->
+<!--                                                <td>-->
+<!--                                                    조회수-->
+<!--                                                </td>-->
+<!--                                                <td>-->
+<!--                                                    작성-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+                                            {% for post in posts %}
+                                                <tr>
+                                                    <td>
+                                                         <p> {{post.url}}</p>
+                                                        <p class="title"> <a href="#">{{post.title|truncatewords:10}}</a></p>
+                                                        <div class="widget-26-job-title">
+                                                            <p class="post_content">
+                                                            {{post.post_content|truncatewords:50}}
+                                                            </p>
+                                                            <p class="text-muted m-0">{{post.user_id}} <span class="location">조회수 {{post.views}}</span></p>
+                                                            <span class="text-muted time">{{post.post_reg_date}}</span>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="d-flex justify-content-center">
+                        <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+                            <li class="page-item">
+                                <a class="page-link no-border" href="#">
+                                    <span aria-hidden="true">«</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
+                            <li class="page-item">
+                                <a class="page-link no-border" href="#">
+                                    <span aria-hidden="true">»</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
