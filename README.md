@@ -40,6 +40,9 @@ root / settings.py 추가
 setting() 함수 호출시 elasticsearch 내 index 생성
 tokenizer , analyzer 선택하여 mapping 시킬 수 있음 
 
+
+
+
 ### bulk_indexing을 통해 데이터 삽입
 
 + posts / searchengine.py
@@ -48,6 +51,8 @@ bulk_indexing() 함수 호출시 elasticsearch 에 삽입
 
 + posts/ models.py 
 모델 클래스 PostTab indexing 함수 필요
+
+
 
 
 ### elasitcsearch를 통한 쿼리 매칭 
@@ -67,9 +72,14 @@ show_post_list(request) 함수 호출시 elasticsearch로부터 쿼리를 매칭
 줄임말 동의어 처리
 
 
+
+
 ### 카테고리별 검색
 
-menu_id가 elasticsearch의 데이터로 저장 되어있어 문서 전체검색을 제외하고는 menu_id를 match query에 넣어줘 쿼리를 매칭시킨다
++ posts / views.py
+ 전체검색을 제외하고 show_post_list(request) 함수 호출시 request의 값을 받아 filter로 매칭시켜줌.
+ 
+menu_id가 elasticsearch의 데이터로 저장 되어있어 쿼리를 매칭시킨다.
 
 
 
